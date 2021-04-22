@@ -1,0 +1,13 @@
+.img_carousel {
+    object-fit: contain;
+}
+.button {
+    background-color: #3fb0ac;
+    border: none;
+    color: white;
+}
+.button:hover {
+    background-color: white;
+    border: 1px solid #3fb0ac;
+    color: #3fb0ac;
+}

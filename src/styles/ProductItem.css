@@ -6,3 +6,7 @@
     height: 250px;
     object-fit: contain;
 }
+.img_detailproduct {
+    width: 100%;
+    object-fit: contain;
+}

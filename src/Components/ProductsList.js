@@ -1,4 +1,4 @@
-//import '../styles/ProductsList.css'
+import '../styles/ProductsList.css'
 import Banner from './Banner';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
@@ -22,10 +22,10 @@ function List() {
     return (
         <div> <Banner />
             <div className="row justify-content-center ">
-                <h2 className="text-center">MY STORE</h2>
+                <h2 className="title_productslist text-center fs-1">MY STORE</h2>
                 <div className="col-12 col-lg-10 ">
-                    <div className="">{products.length} articles</div>
-                    <div className='d-lg-flex flex-row flex-wrap justify-content-evenly p-2 ms-2 '>
+                    <div className="text-center">{products.length} articles</div>
+                    <div className='d-lg-flex flex-row flex-wrap justify-content-evenly p-2 ms-2 mt-5'>
                         {products.map(product => (
                             <div className='' key={product.id}>
                                 <ProductItem 

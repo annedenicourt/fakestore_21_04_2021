@@ -1,10 +1,14 @@
-//import '../styles/ProductItem.css'
+import '../styles/ProductItem.css'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import InnerImageZoom from 'react-inner-image-zoom';
+
 
 function Detail () { 
     const [product, setProduct] = useState({})
@@ -53,17 +57,26 @@ function Detail () {
     console.log(product)
 
     return (
-       <div>
-            <Card className="mb-4 mx-auto">
-                <Card.Img className="p-3" variant="top" src={product.imageUrl}  alt="" />
-                <Card.Body>
-                    <Card.Title>{product.name}</Card.Title>
-                    <Card.Text className="">{product.description}</Card.Text>
-                    <Card.Text className="fw-bold">{product.price} €</Card.Text>
-                    <Button onClick={addToCart}>Ajouter au panier </Button>
-                    <Link to="/products">Retour boutique</Link> 
-                    <Link to="/cart">Voir le panier</Link> 
-                </Card.Body>
+       <div className="container w-75">
+        <h2 className="title_productslist text-center mt-5 mb-5 fs-1">INFOS PRODUIT</h2>
+            <Card className="mx-3 mb-5">
+                <div className="row">
+                    <div className="col-lg-7">
+                        <InnerImageZoom className="img_detailproduct" src={product.imageUrl} zoomSrc={product.imageUrl} alt={product.name} />
+                    </div>
+                        <Card.Body className="col-lg-5">
+                            <Card.Title className="mb-5 fw-bold">{product.name}</Card.Title>
+                            <Card.Text className="mb-5">{product.description}</Card.Text>
+                            <Card.Text className="mb-5 fw-bold fs-2">{product.price} €</Card.Text>
+                            <Card.Text className="text-center">
+                                <Button className="fw-bold text-center" variant="outline-dark" onClick={addToCart}>Ajouter au panier</Button>
+                            </Card.Text>
+                            <Card.Text className="text-center">
+                                <Link className="" to="/products"><button className="btn fw-bold">Retour boutique</button></Link>
+                                <Link className="" to="/cart"><button className="btn fw-bold">Voir le panier</button></Link> 
+                            </Card.Text>
+                        </Card.Body>
+                </div>
             </Card>
         </div>           
     )

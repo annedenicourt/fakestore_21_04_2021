@@ -34,7 +34,9 @@ function Cart (props) {
 
     if (!cartItem || cartItem.length === 0) {
         return(
-            <div>Votre panier est vide</div>
+            <div> <Banner />
+                <div className="col-10 col-lg-6 mx-auto p-5 text-center border rounded fw-bold">Votre panier est vide</div>
+            </div>
         )
     } else {
         
