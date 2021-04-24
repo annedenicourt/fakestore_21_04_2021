@@ -1,5 +1,5 @@
 .card_product {
-    width: 350px;
+    width: 300px;
     height: 500px;
 }
 .card_image {
@@ -9,4 +9,21 @@
 .img_detailproduct {
     width: 100%;
     object-fit: contain;
+}
+.button_item {
+    background-color: white;
+    border: 1px solid #3fb0ac;
+    color: #3fb0ac;
+}
+.button_item:hover {
+    background-color: #3fb0ac;
+    border: 1px solid white;;
+    color: white;
+}
+.info_item{
+    color: #3fb0ac;
+}
+.info_item:hover{
+    color: #3fb0ac;
+    text-decoration: underline;
 }

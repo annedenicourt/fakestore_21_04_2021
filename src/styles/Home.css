@@ -3,7 +3,7 @@
 }
 .button {
     background-color: #3fb0ac;
-    border: none;
+    border: 1px solid white;
     color: white;
 }
 .button:hover {

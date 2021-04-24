@@ -1,0 +1,8 @@
+.bg_footer {
+    background-color: #3fb0ac;
+}
+.bg_footer a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

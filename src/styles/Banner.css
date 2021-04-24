@@ -1,5 +1,6 @@
-.banner {
+.border_banner {
 border-color: #3fb0ac !important;
+border-width: medium !important;
 }
 .menu::after {
     content: "";
@@ -8,5 +9,4 @@ border-color: #3fb0ac !important;
     height: 3px;
     width: 200px;
     margin-bottom: 20px;
-
 }
