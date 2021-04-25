@@ -20,15 +20,15 @@ function Home() {
     console.log(products)
 
 	return (<>
-            <div className="row mx-5 mb-5 ">
+            <div className="row mb-5 px-5 pb-3">
                 <div className="col d-flex justify-content-between">
                     <img className="mt-2" src={logo} height="55" alt='Groupomania'/>
-                    <Link to="/products"><button className='button btn btn-outline-dark mt-3 fw-bold'>CONTACT</button></Link>
+                    <Link to="/"><button className='button btn btn-outline-dark mt-3 fw-bold'>CONTACT</button></Link>
                 </div>
                 <div></div>
                 
             </div>
-            <div className="row mx-5 mb-5 border p-5 shadow">
+            <div className="row mx-5 mb-5 border p-5 shadow bg-white">
                 <Fade left>
                 <div className="col-10 col-lg-6 p-5">
                     <h2 className="title fw-bold mb-5">BIENVENUE </h2>
@@ -47,7 +47,7 @@ function Home() {
             </div>
             <div className="row mb-5 justify-content-center">
             <Fade bottom>
-            <div className="col-10 col-lg-6 mt-5 mb-5 p-5 text-center border shadow">
+            <div className="col-10 col-lg-6 mt-5 mb-5 p-5 text-center border shadow bg-white">
                     <h2 className="title fw-bold mt-5 mb-5">NOS PRODUITS </h2>
                     <div className="content mb-5">MY STORE vous propose sa gamme d'articles vintage au look indémodable. Découvrez les appareils photos vintage, les obejst déco au style rétro et les jouets d'antan qui rappellent notre enfance...</div>
                     <div className="d-flex justify-content-around">

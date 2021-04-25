@@ -23,8 +23,14 @@ function Cart (props) {
     if (!cart || cart.length === 0) {
         localStorage.clear()
         return(
-            <div> <Banner />
-                <div className="col-10 col-lg-6 mx-auto p-5 text-center border rounded fw-bold">Votre panier est vide</div>
+            <div className=""> 
+                <Banner />
+                <div className="empty_cart col-10 col-lg-6 mx-auto p-5 text-center border rounded fw-bold shadow bg-white">
+                    <div className="mb-2 fs-3">OUPS...</div>
+                    <div className="mb-5 fs-5">VOTRE PANIER EST VIDE !</div>
+                    <Link className="mb-5 mt-3" to="/products"><button className="button btn fw-bold">RETOUR BOUTIQUE</button></Link>
+                </div>
+                <Footer />
             </div>
         )
     } else {
