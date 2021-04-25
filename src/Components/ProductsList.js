@@ -2,7 +2,6 @@ import '../styles/ProductsList.css'
 import React, { Component, useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import Banner from './Banner';
-import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form'
 import axios from "axios"
 import Footer from './Footer';

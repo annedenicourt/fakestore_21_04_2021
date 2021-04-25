@@ -35,7 +35,7 @@ function Home() {
                     <div className="content mb-5">MY STORE est une boutique spécialisée dans les objets vintage remis au goût du jour. Pour les amoureux des beaux objets qui racontent une histoire et les nostalgiques du temps passé...</div>
                     <div className="">
                         <Button className="me-4" variant="light" size="lg">+ D'INFOS</Button>
-                        <Link to="/products"><button className='button btn btn-outline-dark btn-lg fw-bold' >LA BOUTIQUE</button></Link>
+                        <Link to="/products"><button className='button btn btn-outline-dark btn-lg fw-bold'>DÉCOUVRIR</button></Link>
                     </div>
                 </div>
                 </Fade>
