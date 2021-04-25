@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from '../assets/logo_mystore.png'
+import { useSelector } from 'react-redux'
 
-class Banner extends Component {
 
-    render() {
+function Banner() {
+    const cart = useSelector(state => state.cart.cart)
+    const numberCart = useSelector(state => state.cart.numberCart)
+
         return (  
             <div className='row banner px-4 mb-5 mx-3'>
                 <nav className="navbar navbar-expand-lg navbar-light">
@@ -17,10 +20,11 @@ class Banner extends Component {
                         </button>
                         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                             <ul className="navbar-nav">
-                                <li className="nav-item me-5"><NavLink className="nav-link fw-bold" to="/products">BOUTIQUE</NavLink></li>
-                                <li className="nav-item"><NavLink className="nav-link fw-bold " to="/cart">PANIER<i className="bi bi-cart2 ms-2"></i></NavLink></li>
-                                { this.props.cart.length > 0 ? (
-                                    <span className="label label-info">{ this.props.numberCart }</span>
+                                <li className="nav-item me-5"><NavLink className="nav-link fw-bold pt-2" to="/products">BOUTIQUE</NavLink></li>
+                                <li className="nav-item"><NavLink className="nav-link fw-bold pt-2 " to="/cart">PANIER</NavLink></li>
+                                <i className="bi bi-cart2 me-2 pt-1"></i>
+                                { cart.length > 0 ? (
+                                    <span className="number_cart text-white text-center fw-bold">{ numberCart }</span>
                                     ) : null
                                 }
                             </ul>
@@ -30,17 +34,9 @@ class Banner extends Component {
             </div>
         )
     }
-}
 
-const mapStateToProps = (state) => {
 
-    return {
-        cart: state.cart.cart,
-        numberCart: state.cart.numberCart
-    }
-};
-
-export default connect(mapStateToProps)(Banner);
+export default Banner
 
 
 

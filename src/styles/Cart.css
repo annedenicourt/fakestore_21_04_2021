@@ -10,3 +10,7 @@
     font-size: 1.2em;
     color: #3fb0ac;
 }
+
+table th {
+    width: auto !important;
+}

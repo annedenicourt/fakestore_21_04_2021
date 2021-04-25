@@ -1,5 +1,5 @@
 import '../styles/ProductsList.css'
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import Banner from './Banner';
 import { connect } from 'react-redux';
@@ -7,9 +7,76 @@ import Form from 'react-bootstrap/Form'
 import axios from "axios"
 import Footer from './Footer';
 import {AddCart} from '../store/actions/cartActions'
+import { useSelector, useDispatch } from 'react-redux'
 
+function ProductsList() {
+    const [products, setProducts] = useState([])
+    const [filter, setFilter] = useState("")
 
-class ProductsList extends Component {
+    useEffect(() => {
+        axios.get("https://607d8e2b184368001769df4f.mockapi.io/api/my-store/products")
+        .then(res => 
+            setProducts(res.data),
+        )
+    }, [])
+
+    const onChangeFilter = (e) => {
+        setFilter(e.target.value)
+    }
+
+        return (
+            <div> <Banner />
+            <div className="row justify-content-center ">
+                <h2 className="title_productslist text-center fs-1">MY STORE</h2>
+                <div className="col-12 col-lg-10 ">
+                    <div className="text-center">{products.length} articles</div>
+                    <Form className="text-end" inline>
+                        <Form.Control onChange={onChangeFilter} as="select" className="my-1 mr-sm-2" custom>
+                            <option value="allproducts">Tous les articles</option>
+                            <option value="Camera">Appareils-photo</option>
+                            <option value="Deco">Déco rétro</option>
+                            <option value="Jouets">Jouets d'antan</option>
+                        </Form.Control>
+                    </Form> 
+                    <div className='d-lg-flex flex-row flex-wrap justify-content-evenly p-2 ms-2 mt-4 mb-5'>
+                        {filter === "Camera" || filter === "Deco" || filter === "Jouets" ?
+                            products.filter(product => product.category === filter).map(filteredProduct => (
+                                <div className='' key={filteredProduct.id}>
+                                    <ProductItem
+                                    id={filteredProduct.id}
+                                    name={filteredProduct.name}
+                                    imageUrl={filteredProduct.imageUrl}
+                                    description={filteredProduct.description}
+                                    price={filteredProduct.price}
+                                    quantity= {filteredProduct.quantity}
+                                    />
+                                </div>
+                            ))
+                        : products.map(product => (
+                            <div className='' key={product.id}>
+                                <ProductItem
+                                    product={product}
+                                    id={product.id}
+                                    name={product.name}
+                                    imageUrl={product.imageUrl}
+                                    description={product.description}
+                                    price={product.price}
+                                    quantity= {product.quantity} 
+                                />
+                            </div>
+                          ))
+                        }
+                    </div>
+                </div>      
+            </div>
+            <Footer />
+            </div>
+        )
+}
+
+export default ProductsList
+
+/*class ProductsList extends Component {
     state = {
         products: [],
         filter:""
@@ -100,4 +167,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)*/

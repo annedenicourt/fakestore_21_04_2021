@@ -1,17 +1,55 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-//import { updateCartQuantity, removeFromCart } from '../../store/actions/cartActions';
+import React, { useState } from 'react';
 import {IncreaseQuantity,DecreaseQuantity,DeleteCart} from '../store/actions/cartActions';
+import { useSelector, useDispatch } from 'react-redux'
+
+function Item(props) {
+
+    const [quantity, setQuantity] = useState(props.quantity)
+    const dispatch = useDispatch()
+    //const cart = useSelector(state => state.cart.cart)
+
+    const increaseQuantity = (index) => {
+        dispatch(IncreaseQuantity(props.item.id))
+        setQuantity(quantity+1)
+    }
+
+    const decreaseQuantity = (index) => {
+        dispatch(DecreaseQuantity(props.item.id))
+        setQuantity(quantity-1)
+    }
+
+    const deleteItem = (index) => {
+        dispatch(DeleteCart(props.item.id))
+    }
+
+    return(
+        <> 
+        <td className=""><img src={props.imageUrl} height="50" alt="" /></td>
+        <td>{props.name}</td>
+        <td>{props.price} €</td>
+        <td id="quantity">{ quantity }</td>
+        <td>{quantity * props.price} €</td>
+        <td>
+            {quantity > 1 ?
+            <button className=" btn btn-sm m-0" onClick={decreaseQuantity}><i className="bi bi-dash-circle-fill"></i></button>
+            :<button className=" btn btn-sm m-0"  disabled><i className="bi bi-dash-circle-fill"></i></button>
+            }
+            <button className="btn btn-sm m-0 p-0" onClick={increaseQuantity}><i className="bi bi-plus-circle-fill"></i></button>
+        </td>
+        <td><button className="btn btn-sm" onClick={deleteItem}><i className="bi bi-trash-fill"></i></button></td>        
+        </>     
+    )
+}
+export default Item
 
 
-class Item extends Component {
+/*class Item extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
             quantity: this.props.item.quantity,
-            btnVisible: false
         };
     }
 
@@ -71,66 +109,10 @@ const mapStateToProps = (state) => {
         updateCartQuantity: (productId, quantity) => dispatch(updateCartQuantity(productId, quantity)),
         removeFromCart: (productId) => dispatch(removeFromCart(productId))
     }
-};*/
+};
 
-export default connect(mapStateToProps,{IncreaseQuantity,DecreaseQuantity,DeleteCart})(Item)
+export default connect(mapStateToProps,{IncreaseQuantity,DecreaseQuantity,DeleteCart})(Item)*/
 
 
-/*import '../styles/Cart.css'
-import React, { useState, useEffect } from 'react';
 
-function CartItem (props) {  
-
-    const cartItem = JSON.parse(localStorage.getItem("cart"))
-    const totalCart = JSON.parse(localStorage.getItem("totalCart"));
-    const [count, setCount] = useState(props.quantity);
-
-    function increaseQuantity() {
-        const index = cartItem.findIndex(item => item.name === props.name)
-        setCount(count + 1)
-        ++ cartItem[index].quantity
-        let totalPanier = props.totalPanier
-        localStorage.setItem('cart', JSON.stringify(cartItem))
-        localStorage.setItem('totalCart', JSON.stringify(totalCart))
-        window.location.reload()
-        //props.totalPanier()
-    }
-
-    function decreaseQuantity() {
-        const index = cartItem.findIndex(item => item.name === props.name)
-        setCount(count - 1)
-        -- cartItem[index].quantity
-        let totalPanier = props.totalPanier
-        localStorage.setItem('cart', JSON.stringify(cartItem))
-        localStorage.setItem('totalCart', JSON.stringify(totalCart))
-        window.location.reload()
-        //props.totalPanier()
-    }
-
-    function deleteItem(index) {
-        cartItem.splice(index,1);
-        localStorage.clear();
-        localStorage.setItem('cart', JSON.stringify(cartItem))
-        window.location.reload();
-    }
-
-    return ( <> 
-        <td className="" ><img src={props.imageUrl} height="50" alt="" /></td>
-        <td>{props.name}</td>
-        <td>{props.price} €</td>
-        <td id="quantity">{count}</td>
-        <td>{count * props.price} €</td>
-        <td>
-            {count > 1 ?
-            <button className=" btn btn-sm m-0 p-0" onClick={decreaseQuantity}><i className="bi bi-dash-circle-fill"></i></button>
-            :<button className=" btn btn-sm m-0" onClick={decreaseQuantity} disabled><i className="bi bi-dash-circle-fill"></i></button>
-            }
-            <button className="btn btn-sm m-0 p-0" onClick={increaseQuantity}><i className="bi bi-plus-circle-fill"></i></button>
-
-        </td>
-        <td><button onClick={deleteItem} className="btn btn-sm"><i className="bi bi-trash-fill"></i></button></td>        
-        </>           
-    )
-}
-export default CartItem*/
 

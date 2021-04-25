@@ -1,4 +1,5 @@
 import '../styles/Footer.css'
+import { Link } from 'react-router-dom';
 
 function Footer() {
     
@@ -11,7 +12,7 @@ function Footer() {
                         <li className="list-inline-item">&middot;</li>
                         <li className="list-inline-item"><a href="mailto:contact@gmy-store.com">Nous contacter</a></li>
                         <li className="list-inline-item">&middot;</li>
-                        <li className="list-inline-item"><a href=" ">Politique de confidentialité</a></li>
+                        <Link to="/privacy-policy"><li className="list-inline-item">Politique de confidentialité</li></Link>
                     </ul>
                 </div>
             </div>

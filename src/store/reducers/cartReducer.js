@@ -12,6 +12,7 @@ function cartReducer(state = initProduct,action){
                     ...state
                 }
         case ADD_CART:
+
             if(state.numberCart===0){
                 let cart = {
                     id:action.payload.id,
@@ -21,6 +22,7 @@ function cartReducer(state = initProduct,action){
                     price:action.payload.price
                 } 
                 state.cart.push(cart); 
+                
             }
             else{
                 let check = false;
@@ -44,6 +46,7 @@ function cartReducer(state = initProduct,action){
             return{
                 ...state,
                 numberCart:state.numberCart+1
+                
             }
             case INCREASE_QUANTITY:
                 const index = state.cart.findIndex(item => item.id === action.payload)

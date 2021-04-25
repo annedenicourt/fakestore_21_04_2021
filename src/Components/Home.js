@@ -7,7 +7,6 @@ import Fade from 'react-reveal/Fade';
 import logo from '../assets/logo_mystore.png'
 import Footer from './Footer';
 
-
 function Home() {
 
     const [products, setProducts] = useState([])
