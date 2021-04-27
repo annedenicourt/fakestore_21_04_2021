@@ -4,7 +4,7 @@ import Banner from './Banner';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 import Footer from './Footer';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Cart (props) {  
     const cart = useSelector(state => state.cart.cart)
@@ -74,7 +74,7 @@ function Cart (props) {
                         <div className="fw-bold fs-2 mb-4">{numberCart}</div>
                         <div className="">Total panier </div>      
                         <div className="fw-bold fs-2 mb-4" id="prix_total">{total} €</div>
-                        <Link className="mb-5 mt-3" to="/cart"><button className="button btn btn-sm fw-bold">VALIDEZ VOTRE COMMANDE</button></Link>
+                        <Link className="mb-5 mt-3" to="/checkout"><button className="button btn btn-sm fw-bold">VALIDEZ VOTRE COMMANDE</button></Link>
                         <div className="text-center"><button className="btn btn-sm mt-4 text-center" onClick={deleteAllCart}>VIDER LE PANIER</button></div>
                     </div>      
                 </div>      
