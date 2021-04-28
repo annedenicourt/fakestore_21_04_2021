@@ -1,5 +1,4 @@
 import '../styles/Cart.css'
-import React, { useState, useEffect } from 'react';
 import Banner from './Banner';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
@@ -25,7 +24,7 @@ function Cart (props) {
         return(
             <div className=""> 
                 <Banner />
-                <div className="empty_cart col-10 col-lg-6 mx-auto p-5 text-center border rounded fw-bold shadow bg-white">
+                <div className="empty_cart col-10 col-lg-6 mx-auto mb-5 p-5 text-center border rounded fw-bold shadow bg-white">
                     <div className="mb-2 fs-3">OUPS...</div>
                     <div className="mb-5 fs-5">VOTRE PANIER EST VIDE !</div>
                     <Link className="mb-5 mt-3" to="/products"><button className="button btn fw-bold">RETOUR BOUTIQUE</button></Link>
@@ -69,7 +68,7 @@ function Cart (props) {
                     </table> 
                 </div>
                 <div className="col-6 col-lg-2 ">
-                    <div className="border rounded p-3 shadow">
+                    <div className="border rounded p-3 bg-white shadow">
                         <div className="">Articles </div>
                         <div className="fw-bold fs-2 mb-4">{numberCart}</div>
                         <div className="">Total panier </div>      

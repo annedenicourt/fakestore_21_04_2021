@@ -12,6 +12,7 @@ export default function CheckoutForm() {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [address, setAddress] = useState('');
+  const [codePostal, setCodePostal] = useState('');
   const [city, setCity] = useState('');
   const stripe = useStripe();
   const elements = useElements();
@@ -36,6 +37,7 @@ export default function CheckoutForm() {
   }, []);
 
   const cardStyle = {
+    hidePostalCode: true,
     style: {
       base: {
         color: "#32325d",
@@ -66,7 +68,8 @@ export default function CheckoutForm() {
       shipping: {
         address: {
           line1: address,
-          city: city
+          city: city,
+          postal_code: codePostal
         },
         name: userName
       },
@@ -76,7 +79,7 @@ export default function CheckoutForm() {
     });
 
     if (payload.error) {
-      setError(`Payment failed ${payload.error.message}`);
+      setError(`Le paiement a échoué ${payload.error.message}`);
     } else {
       setError(null);
       setSucceeded(true);
@@ -96,20 +99,47 @@ export default function CheckoutForm() {
     }
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit}>
-            <div> Coordonnées de livraison</div>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Votre adresse mail"/>
-                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Votre nom"/>
-                <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Votre adresse"/>
-                <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Ville" />
-                <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-                <button disabled={disabled || succeeded} id="submit">
-                    Payez maintenant {total} €
-                </button>
+        <div>
+            <h4 className="mt-5 pb-3 border-bottom fw-bold">FINALISEZ VOTRE COMMANDE</h4>
+
+            <div className="p-3 mt-5 mx-auto border rounded bg-light shadow">
+                <form className="p-5" onSubmit={handleSubmit}>
+                <div className="mb-1"> 1. Vos coordonnées de livraison</div>
+
+                <div className=" ">
+                    <label htmlFor="email" className="form-label"></label>
+                    <input type="email" className="form-control"  id="email" placeholder="Adresse email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                </div>
+                <div className=" ">
+                    <label htmlFor="name" className="form-label"></label>
+                    <input type="text" className="form-control"  id="name" placeholder="Nom" value={userName} onChange={(e) => setUserName(e.target.value)} required/>
+                </div>
+                
+                <div className=" ">
+                    <label htmlFor="address" className="form-label"></label>
+                    <input type="text" className="form-control"  id="address" placeholder="Adresse" value={address} onChange={(e) => setAddress(e.target.value)} required/>
+                </div>
+                <div className=" ">
+                    <label htmlFor="code" className="form-label"></label>
+                    <input type="text" className="form-control"  id="code" placeholder="Code postal" value={codePostal} onChange={(e) => setCodePostal(e.target.value)} required/>
+                </div>
+                <div className=" mb-3">
+                    <label htmlFor="city" className="form-label"></label>
+                    <input type="text" className="form-control"  id="city" placeholder="Ville" value={city} onChange={(e) => setCity(e.target.value)} required/>
+                </div>
+            
                 {error && (
                     <div className="card-error" role="alert">{error}</div>
                 )}
-        </form>
+                <div className="mt-3 mb-3"> 2. Votre paiement</div>
+                <CardElement className="card_element" options={cardStyle} onChange={handleChange}/>
+                <button className="button_payment btn" disabled={disabled || succeeded} id="submit">Payez maintenant {total} €</button>
+                {error && (
+                    <div className="card-error" role="alert">{error}</div>
+                )}
+                </form>
+            </div>
+    </div>
         
   );
 }

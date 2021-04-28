@@ -5,6 +5,9 @@ import CheckoutForm from "./CheckoutForm";
 import "../styles/Stripe.css";
 import { useSelector } from 'react-redux'
 import logo from '../assets/logo_mystore.png'
+import Footer from './Footer';
+import { Link } from 'react-router-dom';
+
 
 const promise = loadStripe("pk_test_51Ik5dgDrJElt9mkCRM54icT2RiqrDyYXEaFnJVtU82HisGZdzAUWUAEVPhWYXvYosgRI87NOBpAVkfgjmMCYmmP2008PTCQhgw");
 
@@ -26,8 +29,8 @@ export default function App() {
             <div className="text-center mt-5 mb-5"><img className="w-50" src={logo} height="" alt="" /></div>
         
         <div className="p-5 w-75 mx-auto border rounded bg-light shadow">
-        <h4 className="mb-4 pb-3 border-bottom">Récapitulatif de la commande</h4>
-        <div className="pb-3 mb-5 border-bottom">
+            <h4 className="mb-4 pb-3 border-bottom">Récapitulatif de la commande</h4>
+            <div className="pb-3 mb-5 border-bottom">
                 {cart.map(item => (
                     <div className="mb-2 d-flex justify-content-between align-items-center" key={item.id}>
                         <div className=""><img src={item.imageUrl} height="60" alt="" /></div>
@@ -38,22 +41,24 @@ export default function App() {
                 ))}  
             </div>
        
-        <div className="text-end">Articles </div>
-        <div className="fw-bold fs-2 mb-4 text-end">{numberCart}</div>
-        <div className="text-end">Total panier </div>      
-        <div className="fw-bold fs-2 mb-4 text-end" id="prix_total">{total} €</div>
+            <div className="text-end">Articles </div>
+            <div className="fw-bold fs-2 mb-4 text-end">{numberCart}</div>
+            <div className="text-end">Total panier </div>      
+            <div className="fw-bold fs-2 mb-4 text-end" id="prix_total">{total} €</div>
+            <Link className="" to="/cart"><button className='button btn fw-bold'><i className="bi bi-arrow-left-circle me-2"></i>RETOUR PANIER</button></Link>
         </div>
 
 
         </div>
 
         <div className="col-10 col-lg-6 bg-light">
-            <div className="w-50 mx-auto">
+            <div className="w-75 mx-auto">
                 <Elements stripe={promise}>
                     <CheckoutForm />
                 </Elements>
             </div>
         </div>
+        <Footer />
     </div>  
   );
 }
