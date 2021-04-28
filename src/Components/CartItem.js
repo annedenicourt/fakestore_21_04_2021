@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {IncreaseQuantity,DecreaseQuantity,DeleteCart} from '../store/actions/cartActions';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function Item(props) {
 

@@ -1,12 +1,10 @@
 import '../styles/ProductsList.css'
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import Banner from './Banner';
 import Form from 'react-bootstrap/Form'
 import axios from "axios"
 import Footer from './Footer';
-import {AddCart} from '../store/actions/cartActions'
-import { useSelector, useDispatch } from 'react-redux'
 
 function ProductsList() {
     const [products, setProducts] = useState([])
