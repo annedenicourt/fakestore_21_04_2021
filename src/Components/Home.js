@@ -22,12 +22,12 @@ function Home() {
 
 	return (<>
         <div className="row mb-5 px-5 pb-3">
-            <div className="col d-flex justify-content-between">
+            <div className="col d-md-flex d-lg-flex justify-content-between">
                 <img className="mt-2" src={logo} height="55" alt='Groupomania'/>
                 <Link to="/"><button className='button btn btn-outline-dark mt-3 fw-bold'>CONTACT</button></Link>
             </div>                
         </div>
-        <Card className="mx-5 mb-5 shadow">
+        <Card className="card_home mx-3 mb-5 shadow">
             <div className="row m-0">
                 <Card.Body className="col-10 col-lg-6 mx-auto p-5 text-center">
                     <Fade left>
@@ -51,7 +51,7 @@ function Home() {
             <Fade bottom>
             <div className="col-10 col-lg-6 mt-5 mb-5 p-5 text-center border rounded shadow bg-white">
                     <h2 className="title fw-bold mb-5">NOS PRODUITS </h2>
-                    <div className="content mb-5">MY STORE vous propose sa gamme d'articles vintage au look indémodable. Découvrez les appareils photos vintage, les obejst déco au style rétro et les jouets d'antan qui rappellent notre enfance...</div>
+                    <div className="content mb-5">MY STORE vous propose sa gamme d'articles vintage au look indémodable. Découvrez les appareils photos vintage, les objets déco au style rétro et les jouets d'antan qui rappellent notre enfance...</div>
                     <div className="d-flex justify-content-around">
                         <figure className="figure">
                             <img src="https://source.unsplash.com/F3Dde_9thd8.jpg" className="title w-100" alt=""/>

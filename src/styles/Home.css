@@ -11,3 +11,10 @@
     border: 1px solid #3fb0ac;
     color: #3fb0ac;
 }
+
+@media screen and (min-width: 500px) {
+    .card_home {
+        margin-left: 48px !important;
+        margin-right: 48px !important;
+    }
+  }

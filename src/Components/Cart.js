@@ -37,7 +37,7 @@ function Cart (props) {
             <div> <Banner />
            <div className="row gap-5 justify-content-center mb-5">
                 <h2 className="text-center">PANIER</h2>
-               <div className="col-10 col-lg-7">
+               <div className="col-10 col-lg-7 table-responsive">
                     <table className="table align-middle">
                     <thead>
                         <tr>
@@ -67,7 +67,7 @@ function Cart (props) {
                     </tbody>
                     </table> 
                 </div>
-                <div className="col-6 col-lg-2 ">
+                <div className="col-8 col-lg-2 ">
                     <div className="border rounded p-3 bg-white shadow">
                         <div className="">Articles </div>
                         <div className="fw-bold fs-2 mb-4">{numberCart}</div>

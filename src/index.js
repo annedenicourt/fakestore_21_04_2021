@@ -5,6 +5,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer'
 import { loadState, saveState } from './localStorage';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
 
 const persistedState = loadState();
 
@@ -19,3 +21,6 @@ ReactDOM.render(
   <App />
   </Provider>, 
   document.getElementById('root'));
+
+
+  serviceWorkerRegistration.unregister();

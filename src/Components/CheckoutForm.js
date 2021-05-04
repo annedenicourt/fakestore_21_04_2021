@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from "@stripe/react-stripe-js";
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 
@@ -37,7 +37,7 @@ export default function CheckoutForm() {
   }, []);
 
   const cardStyle = {
-    hidePostalCode: true,
+    //hidePostalCode: true,
     style: {
       base: {
         color: "#32325d",
@@ -45,7 +45,7 @@ export default function CheckoutForm() {
         fontSmoothing: "antialiased",
         fontSize: "16px",
         "::placeholder": {
-          color: "#32325d"
+          color: ""
         }
       },
       invalid: {
@@ -69,12 +69,12 @@ export default function CheckoutForm() {
         address: {
           line1: address,
           city: city,
-          postal_code: codePostal
+          //postal_code: codePostal
         },
         name: userName
       },
       payment_method: {
-        card: elements.getElement(CardElement)
+        card: elements.getElement(CardNumberElement,CardExpiryElement, CardExpiryElement)
       }
     });
 
@@ -102,9 +102,9 @@ export default function CheckoutForm() {
         <div>
             <h4 className="mt-5 pb-3 border-bottom fw-bold">FINALISEZ VOTRE COMMANDE</h4>
 
-            <div className="p-3 mt-5 mx-auto border rounded bg-light shadow">
-                <form className="p-5" onSubmit={handleSubmit}>
-                <div className="mb-1"> 1. Vos coordonnées de livraison</div>
+            <div className=" mt-5 mb-5 mx-auto border rounded bg-light shadow">
+                <form className="form_payment" onSubmit={handleSubmit}>
+                <div className=""> 1. Vos coordonnées de livraison</div>
 
                 <div className=" ">
                     <label htmlFor="email" className="form-label"></label>
@@ -132,7 +132,21 @@ export default function CheckoutForm() {
                     <div className="card-error" role="alert">{error}</div>
                 )}
                 <div className="mt-3 mb-3"> 2. Votre paiement</div>
-                <CardElement className="card_element" options={cardStyle} onChange={handleChange}/>
+
+                <div className="card_element">
+                  <div className="mb-3 pb-2 border-bottom">
+                    Numéro carte 
+                    <CardNumberElement className="mt-1" options={cardStyle} onChange={handleChange}></CardNumberElement>
+                  </div>
+                  <div className="mb-3 pb-2 border-bottom">
+                    Date expiration
+                    <CardExpiryElement className="mt-1" options={cardStyle} onChange={handleChange}></CardExpiryElement>
+                  </div>
+                  <div className="">
+                    Cryptogramme
+                    <CardCvcElement className="mt-1" options={cardStyle} onChange={handleChange}></CardCvcElement>
+                  </div>
+                </div>
                 <button className="button_payment btn" disabled={disabled || succeeded} id="submit">Payez maintenant {total} €</button>
                 {error && (
                     <div className="card-error" role="alert">{error}</div>

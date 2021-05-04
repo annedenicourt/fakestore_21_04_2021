@@ -24,11 +24,12 @@ function ProductsList() {
         return (
             <div> <Banner />
             <div className="row justify-content-center ">
-                <h2 className="title_productslist text-center fs-1">MY STORE</h2>
+                <h1 className="title_productslist w-100 text-center fs-1">MY STORE</h1>
                 <div className="col-12 col-lg-10 ">
                     <div className="text-center">{products.length} articles</div>
                     <Form className="text-end" inline>
-                        <Form.Control onChange={onChangeFilter} as="select" className="my-1 mr-sm-2" custom>
+                        <label htmlFor="list_filter" className="form-label">Trier </label>
+                        <Form.Control onChange={onChangeFilter} as="select" className="my-1 mr-sm-2" id="list_filter" custom>
                             <option value="allproducts">Tous les articles</option>
                             <option value="Camera">Appareils-photo</option>
                             <option value="Deco">Déco rétro</option>

@@ -23,20 +23,20 @@ export default function App() {
 
   return (
 
-    <div className="row m-0">
+    <div className="row d-sm-flex flex-sm-column flex-md-row m-0">
 
-        <div className="bg_checkout col-10 col-lg-6 p-5 ">
-            <div className="text-center mt-5 mb-5"><img className="w-50" src={logo} height="" alt="" /></div>
+        <div className="bg_checkout col col-lg-6 p-5 mx-auto">
+            <div className="text-center mt-5 mb-5"><img className="w-50" src={logo} height="" alt="logo mystore" /></div>
         
-        <div className="p-5 w-75 mx-auto border rounded bg-light shadow">
-            <h4 className="mb-4 pb-3 border-bottom">Récapitulatif de la commande</h4>
-            <div className="pb-3 mb-5 border-bottom">
+        <div className="col col-lg-8 p-4 mx-auto border rounded bg-light shadow">
+            <h4 className="mb-4 pb-3 text-center border-bottom">Votre commande</h4>
+            <div className="pb-3 mb-5 text-center border-bottom">
                 {cart.map(item => (
-                    <div className="mb-2 d-flex justify-content-between align-items-center" key={item.id}>
-                        <div className=""><img src={item.imageUrl} height="60" alt="" /></div>
+                    <div className=" d-lg-flex justify-content-between align-items-center" key={item.id}>
+                        <div className="mb-2"><img src={item.imageUrl} height="35" alt="" /></div>
                         <div>{item.name}</div>
-                        <div>{item.price* item.quantity}€</div>
                         <div id="quantity">Qté { item.quantity }</div>                          
+                        <div className="fw-bold">{item.price* item.quantity}€</div>
                     </div> 
                 ))}  
             </div>
@@ -45,13 +45,13 @@ export default function App() {
             <div className="fw-bold fs-2 mb-4 text-end">{numberCart}</div>
             <div className="text-end">Total panier </div>      
             <div className="fw-bold fs-2 mb-4 text-end" id="prix_total">{total} €</div>
-            <Link className="" to="/cart"><button className='button btn fw-bold'><i className="bi bi-arrow-left-circle me-2"></i>RETOUR PANIER</button></Link>
+            <div className="text-center"><Link to="/cart"><button className='button btn fw-bold'><i className="bi bi-arrow-left-circle me-2"></i>RETOUR PANIER</button></Link></div>
         </div>
 
 
         </div>
 
-        <div className="col-10 col-lg-6 bg-light">
+        <div className="col col-lg-6 mx-auto bg-light">
             <div className="w-75 mx-auto">
                 <Elements stripe={promise}>
                     <CheckoutForm />

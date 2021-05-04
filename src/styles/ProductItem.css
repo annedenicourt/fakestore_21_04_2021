@@ -11,14 +11,14 @@
     object-fit: contain;
 }
 .button_item {
-    background-color: white;
+    background-color: #3fb0ac;
     border: 1px solid #3fb0ac;
-    color: #3fb0ac;
+    color: white;
 }
 .button_item:hover {
     background-color: #3fb0ac;
-    border: 1px solid white;;
-    color: white;
+    border: 1px solid #3fb0ac;
+    filter: brightness(1.2);
 }
 .info_item{
     color: #3fb0ac;
@@ -27,3 +27,9 @@
     color: #3fb0ac;
     text-decoration: underline;
 }
+
+@media screen and (max-width: 359px) {
+    .card_product {
+        width: 100%;
+    }
+  }
