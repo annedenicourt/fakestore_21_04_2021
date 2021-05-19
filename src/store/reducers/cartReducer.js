@@ -1,4 +1,5 @@
 import {GET_NUMBER_CART,ADD_CART, DECREASE_QUANTITY, INCREASE_QUANTITY, DELETE_CART} from  '../actions/cartActions';
+import Swal from 'sweetalert2'
 
 const initProduct = {
     numberCart:0,
@@ -21,8 +22,7 @@ function cartReducer(state = initProduct,action){
                     imageUrl:action.payload.imageUrl,
                     price:action.payload.price
                 } 
-                state.cart.push(cart); 
-                
+                state.cart.push(cart);             
             }
             else{
                 let check = false;
@@ -43,6 +43,11 @@ function cartReducer(state = initProduct,action){
                     state.cart.push(_cart);
                 }
             }
+            Swal.fire({
+                icon: 'success',
+                title: 'Super !',
+                text: 'Cet article a été ajouté au panier',
+              })
             return{
                 ...state,
                 numberCart:state.numberCart+1

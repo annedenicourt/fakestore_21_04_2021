@@ -11,7 +11,7 @@ function ProductItem (props) {
 
     return (
        <div>
-            <Card className="card_product mb-4 mx-auto">
+            <Card className="card_product mb-4 mx-auto shadow">
                 <Card.Img className="card_image p-3" variant="top" src={props.imageUrl}  alt="" />
                 <Card.Body>
                     <Card.Title className="fw-bold fs-3">{props.name}</Card.Title>

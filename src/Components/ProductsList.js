@@ -5,17 +5,27 @@ import Banner from './Banner';
 import Form from 'react-bootstrap/Form'
 import axios from "axios"
 import Footer from './Footer';
+import ClipLoader from "react-spinners/ClipLoader";
+import Spinner from 'react-bootstrap/Spinner'
+
 
 function ProductsList() {
     const [products, setProducts] = useState([])
     const [filter, setFilter] = useState("")
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         axios.get("https://607d8e2b184368001769df4f.mockapi.io/api/my-store/products")
         .then(res => 
             setProducts(res.data),
+            setLoading(false)
         )
     }, [])
+
+    useEffect(() => {
+        console.log(loading)
+    }, [loading])
 
     const onChangeFilter = (e) => {
         setFilter(e.target.value)
@@ -23,6 +33,15 @@ function ProductsList() {
 
         return (
             <div> <Banner />
+            <div className="loader">
+            { loading ?
+               <Spinner animation="grow" />
+                :""
+            }   
+            </div>
+            
+                  
+
             <div className="row justify-content-center ">
                 <h1 className="title_productslist w-100 text-center fs-1">MY STORE</h1>
                 <div className="col-12 col-lg-10 ">
