@@ -9,7 +9,7 @@ function Banner() {
     const numberCart = useSelector(state => state.cart.numberCart)
 
         return (  
-            <div className='row banner px-4 mb-5'>
+            <div className='row banner px-4 mx-0 mb-5'>
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="border_banner container-fluid border-bottom pb-3 justify-content-center">
                     <NavLink className="nav-link" to="/"><img src={logo} height="50" alt='logo mystore'/></NavLink>

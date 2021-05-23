@@ -5,7 +5,6 @@ import Banner from './Banner';
 import Form from 'react-bootstrap/Form'
 import axios from "axios"
 import Footer from './Footer';
-import ClipLoader from "react-spinners/ClipLoader";
 import Spinner from 'react-bootstrap/Spinner'
 
 

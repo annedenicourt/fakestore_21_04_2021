@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 // This is your real test secret API key.
 const stripe = require("stripe")("sk_test_51Ik5dgDrJElt9mkCxKlMoucqNOLI9xZosSkOorEYKDrofJJZcKso49Gj9PQEUlBTxwuvNdBadFgDSWKYyIF82eUr00gj94QHSS");
 
 app.use(express.static("."));
 app.use(express.json());
-
+app.use(cors())
 
 app.post("/create-payment-intent", async (req, res) => {
   const { total } = req.body;

@@ -47,7 +47,7 @@ function cartReducer(state = initProduct,action){
                 icon: 'success',
                 title: 'Super !',
                 text: 'Cet article a été ajouté au panier',
-              })
+            })
             return{
                 ...state,
                 numberCart:state.numberCart+1

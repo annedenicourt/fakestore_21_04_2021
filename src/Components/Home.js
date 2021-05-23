@@ -21,10 +21,10 @@ function Home() {
     console.log(products)
 
 	return (<>
-        <div className="row mb-5 px-5 pb-3">
+        <div className="row mx-0 mb-5 px-5 pb-3">
             <div className="col d-md-flex d-lg-flex justify-content-between">
                 <img className="mt-2" src={logo} height="55" alt='Groupomania'/>
-                <Link to="/"><button className='button btn btn-outline-dark mt-3 fw-bold'>CONTACT</button></Link>
+                <Link to="/contact"><button className='button btn btn-outline-dark mt-3 fw-bold'>CONTACT</button></Link>
             </div>                
         </div>
         <Card className="card_home mx-3 mb-5 shadow">
@@ -47,7 +47,7 @@ function Home() {
             </div>
         </Card>
         
-            <div className="row mb-5 justify-content-center">
+            <div className="row mx-0 mb-5 justify-content-center">
             <Fade bottom>
             <div className="col-10 col-lg-6 mt-5 mb-5 p-5 text-center border rounded shadow bg-white">
                     <h2 className="title fw-bold mb-5">NOS PRODUITS </h2>
