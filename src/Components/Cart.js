@@ -35,7 +35,7 @@ function Cart (props) {
     } else {
         return (
             <div> <Banner />
-           <div className="row gap-5 justify-content-center mb-5">
+           <div className="row gap-5 justify-content-center mb-5 mx-0">
                 <h2 className="text-center">PANIER</h2>
                <div className="col-10 col-lg-7 table-responsive">
                     <table className="table align-middle">

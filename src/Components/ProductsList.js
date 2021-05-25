@@ -41,7 +41,7 @@ function ProductsList() {
             
                   
 
-            <div className="row justify-content-center ">
+            <div className="row justify-content-center mx-0">
                 <h1 className="title_productslist w-100 text-center fs-1">MY STORE</h1>
                 <div className="col-12 col-lg-10 ">
                     <div className="text-center">{products.length} articles</div>
