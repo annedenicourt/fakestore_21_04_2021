@@ -59,6 +59,7 @@ function ProductsList() {
                             products.filter(product => product.category === filter).map(filteredProduct => (
                                 <div className='' key={filteredProduct.id}>
                                     <ProductItem
+                                    product={filteredProduct}
                                     id={filteredProduct.id}
                                     name={filteredProduct.name}
                                     imageUrl={filteredProduct.imageUrl}
